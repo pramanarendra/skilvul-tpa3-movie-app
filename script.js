@@ -5,11 +5,13 @@ const base_URL = "https://api.themoviedb.org/3";
 const API_URL = `${base_URL}/discover/movie?api_key=${API_key}&sort_by=popularity.desc&page=1`;
 const img_URL = "https://image.tmdb.org/t/p/w500";
 
+
+//  get DOM elements
 const container = document.getElementById("card-container");
 const form = document.getElementById("form");
 const search = document.getElementById("search");
 
-
+//  get movies data from API
 const getMovies = async url => {
     let response = await fetch(url);
     let movies = await response.json();
@@ -18,6 +20,7 @@ const getMovies = async url => {
 
 getMovies(API_URL);
 
+//  show movies data in HTML
 const showMovies = movies => {    
     movies.forEach(movie => {
         const {title, poster_path, release_date, vote_average} = movie;
@@ -38,6 +41,7 @@ const showMovies = movies => {
     })
 }
 
+//  search feature
 form.addEventListener('submit', ev => {
     ev.preventDefault();
 
