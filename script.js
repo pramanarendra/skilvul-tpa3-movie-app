@@ -2,7 +2,7 @@
 
 const API_key = "cf0bb3ca1bf718a2c9602efcec812bde";
 const base_URL = "https://api.themoviedb.org/3";
-const API_URL = `${base_URL}/discover/movie?api_key=${API_key}&sort_by=popularity.desc`;
+const API_URL = `${base_URL}/discover/movie?api_key=${API_key}&sort_by=popularity.desc&page=1`;
 const img_URL = "https://image.tmdb.org/t/p/w500";
 
 const container = document.getElementById("card-container");
@@ -44,7 +44,7 @@ form.addEventListener('submit', ev => {
     container.innerHTML = "";
 
     const word = search.value;
-    const search_URL = `${base_URL}/search/movie?api_key=${API_key}&query=${word}`
+    const search_URL = `${base_URL}/search/movie?api_key=${API_key}&query=${word}&page=1`
 
     if(word) {
         getMovies(search_URL);
